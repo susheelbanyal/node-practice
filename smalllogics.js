@@ -10,6 +10,9 @@ if(s < 0 ){
 }
 console.log('>>>', newst)
 */
+
+
+
 /*
 //Show only last 4 digits of the CC
 let cc = 123456789999;
@@ -25,6 +28,9 @@ for(let i=0; i < strcc.length; i++){
 }
 console.log('>>>', newstcc)
 */
+
+
+
 /*
 // Get sum through javascript clouser 
 const getSum = (a) => (b)=> (c) => (d) => (e) => a+b+c+d+e;
@@ -33,7 +39,6 @@ console.log(getSum(5)(4)(3)(2)(5));
 
 /*
 let arr = [1,2,3,4,5];
-
 // console.log(arr.map(a=> a + 1).filter(x => x > 2))
 let avg = arr.reduce((accum, current) => {
     // debugger;
