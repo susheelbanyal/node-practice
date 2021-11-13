@@ -12,78 +12,16 @@ console.log('1 : Bubble Sort');
 console.log('2 : Binary Search');
 console.log('3 : Palindrome');
 console.log('4 : Check for how many time array left shifted');
+console.log('5 : Check array is Max heap?');
+console.log('0 : Exit');
 
 inquirer.prompt(questions).then(answers => {
   console.log(typeof(answers['number']),`You have pressed ${answers['number']}!`)
   switch(parseInt(answers['number'])){
-  case 4:      //if day = 1
-    // find how many times it got left shifted means if array was [0,1,2,3,4,5,6,7] and become [4,5,6,7,0,1,2,3] then it got left shifted 4 times
-    let arr = [2,3,4,5,6,7,0,1]
-    let size = arr.length;
-    for (let index = 0; index < arr.length; index++) {
-        const element = arr[index];
-        if(arr[index] > arr[index+1]){
-            console.log(arr, " array left shifted :", size - index-1 + ' times')
-            break;
-        }
-    }
+    case 0:      
+      return false;
     break;
-  case 2: 
-    // Binary search
-    let item = 20;
-    let itemIndex;
-        //     0  1  2  3  4  5  6   7   8   9   10  11   12   13   14   15
-    let binaryArr = [2, 3, 4, 5, 6, 7, 12, 13, 17, 20, 23, 25, 171, 201, 231, 251]
-    let l = 0;
-    let r = binaryArr.length - 1;
-    while (l <= r) {
-        let mid = parseInt((l + r) / 2);
-        //console.log('l:', l, 'mid: ', mid, 'r: ', r )
-        if (item == binaryArr[mid]) {
-          itemIndex = mid; 
-          break;
-        } else if (item < binaryArr[mid]) {
-            r = mid - 1;
-        } else {
-            l = mid + 1;
-        }
-    }
-    console.log("The Search Item", item,  " is at ", itemIndex, ' position in '+ binaryArr );
-    break;
-  case 3: 
-
-    let number = 1234321;
-    function isPalindrome(str, duplNew) {
-        if (typeof str === 'string') {
-            let length = str.length;
-            let newStr = '';
-            for (i = length - 1; i >= 0; i--) {
-                newStr = newStr + str[i];
-            }
-            if (newStr == str) {
-                console.log(str, "is Palindrome")
-            } else {
-                console.log(str, "is not Palindrome")
-            }
-        } else {
-            // For integer
-            let newN = parseInt(str / 10);
-            let dupl = (str % 10);
-            duplNew = (duplNew * 10) + dupl;
-
-            if (newN >= 1) {
-                return isPalindrome(newN, duplNew)
-            }
-            if (duplNew == number) {
-                console.log(number, "is Palindrome")
-            } else {
-                console.log(number, "is not Palindrome")
-            }
-        }
-    }
-    isPalindrome(number, 0);
-    isPalindrome('Ocean', 0);
-    break;
+    
     case 1: 
       let bubbleArr = [34,5,2,65,23,15,3,42,6];
       console.log("Input array is: ", bubbleArr)
@@ -104,6 +42,101 @@ inquirer.prompt(questions).then(answers => {
       }
       console.log("Sorted array is: ", bubbleArr)
     break;
+
+    case 2: 
+      // Binary search
+      let item = 20;
+      let itemIndex;
+          //     0  1  2  3  4  5  6   7   8   9   10  11   12   13   14   15
+      let binaryArr = [2, 3, 4, 5, 6, 7, 12, 13, 17, 20, 23, 25, 171, 201, 231, 251]
+      let l = 0;
+      let r = binaryArr.length - 1;
+      while (l <= r) {
+          let mid = parseInt((l + r) / 2);
+          //console.log('l:', l, 'mid: ', mid, 'r: ', r )
+          if (item == binaryArr[mid]) {
+            itemIndex = mid; 
+            break;
+          } else if (item < binaryArr[mid]) {
+              r = mid - 1;
+          } else {
+              l = mid + 1;
+          }
+      }
+      console.log("The Search Item", item,  " is at ", itemIndex, ' position in '+ binaryArr );
+    break;
+
+    case 3: 
+      let number = 1234321;
+      function isPalindrome(str, duplNew) {
+          if (typeof str === 'string') {
+              let length = str.length;
+              let newStr = '';
+              for (i = length - 1; i >= 0; i--) {
+                  newStr = newStr + str[i];
+              }
+              if (newStr == str) {
+                  console.log(str, "is Palindrome")
+              } else {
+                  console.log(str, "is not Palindrome")
+              }
+          } else {
+              // For integer
+              let newN = parseInt(str / 10);
+              let dupl = (str % 10);
+              duplNew = (duplNew * 10) + dupl;
+
+              if (newN >= 1) {
+                  return isPalindrome(newN, duplNew)
+              }
+              if (duplNew == number) {
+                  console.log(number, "is Palindrome")
+              } else {
+                  console.log(number, "is not Palindrome")
+              }
+          }
+        }
+        isPalindrome(number, 0);
+        isPalindrome('Ocean', 0);
+      break;
+      case 4:    
+        // find how many times it got left shifted means if array was [0,1,2,3,4,5,6,7] and become [4,5,6,7,0,1,2,3] then it got left shifted 4 times
+        let arr = [2,3,4,5,6,7,0,1]
+        let size = arr.length;
+        for (let index = 0; index < arr.length; index++) {
+            const element = arr[index];
+            if(arr[index] > arr[index+1]){
+                console.log(arr, " array left shifted :", size - index-1 + ' times')
+                break;
+            }
+        }
+      break;
+
+      case 5:
+        //           90
+        //      15         10
+        //   7     12    2    7
+        // 3   6  8   9  
+
+        //Every parent node is greater than its immediate children 
+        // and to check if node is leaf node 
+
+        //   0   1   2   3  4   5  6  7
+        let maxHeapArr = [90, 15, 10, 7, 12, 2, 7, 8];
+        let maxHeapSize = maxHeapArr.length-1;
+        console.log(maxHeapArr, 'is: ', isHeap(0));
+
+        function isHeap(i) {
+            if (i >= (maxHeapSize - 2) / 2) {
+                return true;
+            }
+            if (maxHeapArr[i] >= maxHeapArr[2 * i + 1] && maxHeapArr[i] >= maxHeapArr[2 * i + 2] && isHeap(2 * i + 1) && isHeap(2 * i + 2)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+      break;
 
 } 
 

@@ -48,7 +48,7 @@ console.log(avg)
 */
 // Closure in action that is inner function can have access to the outer function variables/parameters as well as all the global variables.
 // The return statement does it execute the inner function -  function is executed only when followed by (), but rather the return statment returns the entire body of the function.
-var k = 7;
+//var k = 7;
 // function a(i){
 //     var j = 5;
 //     function b(){
@@ -58,7 +58,7 @@ var k = 7;
 // }
 
 // a(2)
-
+/*
 function b(){
     // var k = 9;
     console.log('k: ', k)
@@ -66,3 +66,10 @@ function b(){
     console.log('k: ', k)
 }
 return b();
+
+*/
+
+
+// Max heap: where the parent node is greater than the child node. except root node.
+// To check the parent of any node [size/2]
+// arr[i]>= arr[i+1] && arr[0] > arr[i+1]
